@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../../include/design/head %>
+</head>
+<body>
+
+	<header>
+		<% include ../../include/design/header %>
+	</header>
+	
+	<div class="row purplebg listings">
+            <div class="col-md-8 col-md-offset-2 col-sm-12  col-xs-12">
+                <div class="main-tab-menu">       
+                         
+                    <% include ../../include/design/top_nav %> 
+                                 
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="profile">
+                            <hr class="purplehr">                           
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-12">
+                                
+                                    <div class="main-listing">
+									     <% if (did == 1) { %>
+										 <h1>Update Delivery Time for Monday</h1>
+									     <% }
+										 
+										 if(did == 2){ %>
+                                         <h1>Update Delivery Time for Tuesday</h1>
+									     <% }
+										 
+										 if(did == 3){ %>
+                                         <h1>Update Delivery Time for Wednesday</h1>
+									     <% }
+										 
+										 if(did == 4){ %>
+                                         <h1>Update Delivery Time for Thursday</h1>
+									     <% }
+										 
+										 if(did == 5){ %>
+                                         <h1>Update Delivery Time for Friday</h1>
+									     <% } 
+										 
+										 if(did == 6){ %>
+                                         <h1>Update Delivery Time for Saturday</h1>
+									     <% } 
+										 
+										 if(did == 7){ %>
+                                         <h1>Update Delivery Time for Sunday</h1>
+									     <% } %>
+										 
+                                        <div class="row">
+										
+										<form method="post" id="updatedeltimefrm" action="/pages/del_days_setting/update">
+										
+										<% if (messages.error) { %>
+											<div class="alert alert-error"><%- messages.error %></div>
+										<% } %>
+										 
+										<% if (messages.success) { %>
+											<div class="alert alert-success"><%- messages.success %></div>
+										<% } %>  
+										
+										<input type="hidden" name="day_id" value="<%= did; %>" >
+										<input type="hidden" id="dilvery_time_hrs" value="<%= udd_data.data[0].delivery_time_hrs; %>">
+										<input type="hidden" id="dilvery_time_mints" value="<%= udd_data.data[0].delivery_time_mints; %>">
+										
+										<input type="hidden" id="start_time_val" name="start_time_val" value="">
+										<input type="hidden" id="end_time_val" name="end_time_val" value="">
+										<input type="hidden" id="delivery_day" name="delivery_day" value="1">
+										
+										<div class="col-md-6" style="margin-top: 10px;margin-bottom: 10px;">
+										<div class="form-check form-check-inline">
+											  <input class="form-check-input" type="checkbox" name="no_delivery" id="no_delivery" value="No Delivery" onclick="no_delivery_time()";>
+											  <label class="form-check-label" for="no_delivery" style="vertical-align: top;">No Delivery </label> 
+										</div>
+										<small>If you want no delivery this day then check this checkbox.</small>
+										</div>
+										<div style="clear:both"></div>
+										
+										<div id="no_delivery_fields" style="display:none" class="col-md-6">
+										<div class="alert alert-info">There are No delivery in this day.</div>
+										</div> 
+										
+										<div style="clear:both"></div>
+										
+										<div id="delivery_fields"> 
+										<div class="col-md-6">
+											<div class="form-group">
+												
+												<label for="stime_hrs">Start Time: </label>
+												
+												<select id="stime_hrs" class="form-control" name="stime_hrs" onchange="end_time_list(this.value)"  required>
+												
+												<option value="" >Select Start Time</option>
+												
+												<% for(var i=0; i < udd_data.data2.length; i++) { %>
+												<option value="<%= udd_data.data2[i].id %>" ><%= udd_data.data2[i].time_start %></option>
+												<% } %>
+												
+												</select>
+											</div> 		
+                                        </div>
+										<div style="clear:both"></div>
+										
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												
+												<label for="etime_hrs">End Time: </label>
+												
+												<select id="etime_hrs" class="form-control" name="etime_hrs" onchange="time_windows_del(this.value)" required>
+												<option value="" >Select End Time</option>
+												
+												</select>
+											</div> 		
+                                        </div>
+										
+										
+										<div style="clear:both"></div>
+										<div class="col-md-6" id="time_windows_list" style="display:none"> 
+										<h4>Time Windows are available for delivery</h4>
+										</div>
+										
+										<div style="clear:both"></div> 
+										<div class="col-md-6">
+											<div class="form-group">
+												
+												<ul class="list-group" style="list-style:none" id="time_windows">
+												
+												</ul>
+											
+									    </div> 	
+										
+										</div>
+										</div>
+										
+										<div style="clear:both"></div>
+										<div class="col-md-6">  
+									    <button type="submit" class="btn btn-success">Update</button>
+										</div>
+										</form>	
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                </div>
+				
+                <footer>
+                <% include ../../include/design/footer %>
+				</footer>
+    
+            </div>
+        </div>
+	
+</body>
+</html>
+
+<script>
+function no_delivery_time(){
+if ($('input#no_delivery').is(':checked')) {
+$('#delivery_fields').css('display','none');
+$('#no_delivery_fields').css('display','block');
+$('#delivery_day').val(0);
+}
+else{
+$('#delivery_fields').css('display','block');
+$('#no_delivery_fields').css('display','none');
+$('#delivery_day').val(1);
+}
+
+}
+</script>
+
+<script>
+function end_time_list(stid){
+    var dtmints   = $('#dilvery_time_mints').val();
+	var dtmints   = parseInt(dtmints);
+	
+	var start_time_val = $('#stime_hrs :selected').text();
+	$('#start_time_val').val(start_time_val);
+	
+	var dthrs   = $('#dilvery_time_hrs').val();
+	var dthrs   = parseInt(dthrs);
+	
+	var total_slots = (24-stid)+1; 
+	
+	var start_index = stid-1;
+
+	var time_arrays = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+	
+	$('#etime_hrs').html('');
+	$('#etime_hrs').append('<option value="" >Select Start Time</option>');
+	
+	if(dtmints==00){
+	
+	var end_time = (dthrs+start_index);
+	
+	for(var i=1; i<=total_slots; i++){
+    
+		if(end_time<=24){
+		if(end_time==24){
+		$('#etime_hrs').append('<option value="'+time_arrays[0]+'">'+time_arrays[0]+'</option>');
+		}else{
+		$('#etime_hrs').append('<option value="'+time_arrays[end_time]+'">'+time_arrays[end_time]+'</option>');
+		}
+		var end_time = (dthrs+end_time);
+		
+		}
+	}
+	}
+	//-----------------------------------------------//
+   
+    if(dtmints==15 || dtmints==30 || dtmints==45){
+	
+	var end_time = (dthrs+start_index);
+	
+	var first_end_time_str = time_arrays[end_time];
+    var first_end_time = first_end_time_str.replace("00", dtmints);
+	
+	var check_mints =dtmints;
+	var v2 =5;
+	var t=1;
+	for(var i=1; i<=total_slots; i++){
+        if(i==1){
+		
+		$('#etime_hrs').append('<option value="'+first_end_time+'">'+first_end_time+'</option>');
+		
+		}
+	    
+		if(dtmints==15 || dtmints==30){
+		check_mints += dtmints;
+		
+		if(end_time<22){
+		
+		if(check_mints<=45){
+		
+		var end_time = (dthrs+end_time);
+		var next_end_time= time_arrays[end_time].replace("00", check_mints);
+		$('#etime_hrs').append('<option value="'+next_end_time+'">'+next_end_time+'</option>');
+		}
+		
+		else{
+		end_time=end_time+1;
+		end_time=end_time+dthrs;
+	
+		var next_end_time= time_arrays[end_time];
+		$('#etime_hrs').append('<option value="'+next_end_time+'">'+next_end_time+'</option>');
+		check_mints =0;
+		}
+		}
+		else{
+		break;
+		}
+		}
+		
+		if(dtmints==45){
+		
+		if(newhour2>=12){
+		  var time_diff = newhour2-12;
+		  hour  = first_end_time.split(":");
+		  var mints =hour[1].replace ( /[^\d.]/g, '' );
+		  first_end_time = '0'+time_diff+':'+mints+' PM';
+		  t+=t+1; 
+		}
+		
+		if(t<=3){
+		if(v2==5){
+		var v1 =dtmints+dtmints;
+		v2 =v1-60;
+	    }
+		else{
+		var v1 =v2+dtmints;
+		if(v1>=60){v2 =v1-60;}
+		else{v2=dtmints;
+		}
+		}
+		
+		
+			if(v2>0){
+			var hour  = first_end_time.split(":");
+			var nhour = parseInt(hour[0]);
+			
+			var mints =hour[1].replace ( /[^\d.]/g, '' );
+			var ampm = hour[1].substring(3, 5);
+			//alert(hour[0]);
+			if(mints==00){var newhour= nhour+dthrs;}else{var newhour= nhour+dthrs+1;}
+			if(newhour==12){ampm='PM';}
+			
+			if(newhour>12){var newhour = newhour-12;ampm='PM';t+=t+1;}
+			
+			if(newhour==0){newhour=newhour+1;}
+			if(newhour<=9){
+			var newhour2= '0'+newhour;
+			
+			}else{var newhour2= newhour;}
+			
+			var next = newhour2+':'+v2+' '+ampm;
+			
+			$('#etime_hrs').append('<option value="'+next+'">'+next+'</option>');
+			first_end_time=next;
+			}
+			
+			else{
+			
+			var hour  = first_end_time.split(":");
+			var nhour = parseInt(hour[0]);
+			
+			var mints =hour[1].replace ( /[^\d.]/g, '' );
+			var ampm = hour[1].substring(3, 5);
+			
+			var newhour= nhour+dthrs+1;
+			
+			if(newhour==12){ampm='PM';}
+			if(newhour>12){var newhour = newhour-12;ampm='PM';t+=t+1;  alert(t);}
+			if(newhour==0){newhour=newhour+1;}
+			
+			if(newhour<=9){
+			var newhour2= '0'+newhour;
+			}else{var newhour2= newhour;}
+			
+			var next = newhour2+':00 '+ampm;
+			
+			$('#etime_hrs').append('<option value="'+next+'">'+next+'</option>');
+			first_end_time=next;
+			
+			}
+		
+		  }	
+		  else{
+		  break;}
+		  
+		}
+		
+		}
+	}
+	
+}
+
+
+function time_windows_del(etval){
+
+	/*var start_time_val = $('#start_time_val').val();
+	var end_time_val   = $('#etime_hrs :selected').text();
+	$('#end_time_val').val(end_time_val);
+	
+	var dthrs   = $('#dilvery_time_hrs').val();
+	var dthrs   = parseInt(dthrs);
+	
+	var time_arrays = ["12:00 AM", "01:00 AM", "02:00 AM", "03:00 AM", "04:00 AM", "05:00 AM", "06:00 AM", "07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM", "06:00 PM", "07:00 PM", "08:00 PM", "09:00 PM", "10:00 PM", "11:00 PM"];
+	
+	$('#time_windows_list').css('display','block');
+	$('#time_windows').html('');
+	
+	var start_time_index = time_arrays.indexOf(start_time_val);
+	var end_time_index   = time_arrays.indexOf(end_time_val);
+	
+	if(end_time_index==0){end_time_index=24;}
+	
+	var counter = 1;
+	for(var i=start_time_index; i<end_time_index; i=i+dthrs){
+	
+	var time_window_start =i;
+	var time_window_end = i+dthrs;
+	
+	if(time_window_end==24){time_window_end=0;}
+	
+	$('#time_windows').append('<li class="list-group-item">'+counter+'. '+time_arrays[time_window_start]+' -  '+time_arrays[time_window_end]+'<input type="checkbox" id="delivery_time" name="delivery_time[]" value="'+time_arrays[time_window_start]+' -  '+time_arrays[time_window_end]+'" required style="margin-left: 5px;vertical-align: top;"></li>');
+	
+	counter++;
+	}*/
+	
+	$('#time_windows_list').css('display','block');
+	$('#time_windows').html('');
+	
+	var end_time_lenght = $('#etime_hrs option').size();
+	var start_time_val  = $('#start_time_val').val();
+	var end_time_val    = $('#etime_hrs :selected').val();
+	$('#end_time_val').val(end_time_val);
+	
+	for(var i=1; i<=end_time_lenght; i++){
+	
+	var start=$("#etime_hrs option:eq("+i+")").val();
+	if(i>=2){var j=i-1; var start_time_val=$("#etime_hrs option:eq("+j+")").val();var start=$("#etime_hrs option:eq("+i+")").val();}
+	
+	if(start!=end_time_val){
+	  $('#time_windows').append('<li class="list-group-item">'+i+'. '+start_time_val+' -  '+start+'<input type="checkbox" id="delivery_time" name="delivery_time[]" value="'+start_time_val+' -  '+start+'" required style="margin-left: 5px;vertical-align: top;"></li>');
+	 }
+	if(start==end_time_val){
+	$('#time_windows').append('<li class="list-group-item">'+i+'. '+start_time_val+' -  '+start+'<input type="checkbox" id="delivery_time" name="delivery_time[]" value="'+start_time_val+' -  '+start+'" required style="margin-left: 5px;vertical-align: top;"></li>');
+	 break;
+	} 
+	}
+	
+}
+</script>
+

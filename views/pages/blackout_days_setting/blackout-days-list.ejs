@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../../include/design/head %>
+</head>
+<body>
+
+	<header>
+		<% include ../../include/design/header %>
+	</header>
+	
+	<div class="row purplebg listings">
+            <div class="col-md-8 col-md-offset-2 col-sm-12  col-xs-12">
+                <div class="main-tab-menu">       
+                         
+                    <% include ../../include/design/top_nav %> 
+                                 
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="profile">
+                            <hr class="purplehr">                           
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-12">
+                                
+                                    <div class="main-listing">
+                                        <h1>Blackout Days List</h1>
+										
+                                           
+                                        <div class="row">
+										
+										<% if (messages.error) { %>
+										<div class="alert alert-error"><%- messages.error %></div>
+										<% } %>
+										 
+										<% if (messages.success) { %>
+											<div class="alert alert-success"><%- messages.success %></div>
+										<% } %>  
+										
+										<div style="float: right; margin-bottom: 5px;margin-top: 5px;">
+										<a href="/pages/blackout_days_setting/add-blackout-day %>" class="btn btn-info">Add New</a>
+                                        </div>
+										<div style="clear:both" ></div>
+											<table class="table table-hover"> 
+											<thead> 
+											<tr> 
+											<th width="10%">#</th> 
+											<th width="20%">Date</th>
+											<th width="50%">Description</th>
+											<th width="20%">Actions</th>
+											</tr>
+											
+											</thead>
+											<tbody>
+											
+											
+											<% for(var i=0; i < data.length; i++) { %>
+											<tr> 
+											<td><%= i+1 %></td> 
+											<td><%= data[i].date.getDate()+"-"+(data[i].date.getMonth()+1)+"-"+data[i].date.getFullYear(); %></td>
+											<td><%= data[i].description %></td>
+											<td><a href="/pages/blackout_days_setting/update-blackout-day/<%= data[i].id %>" class="btn btn-info">Edit</a>
+											<a href="/pages/blackout_days_setting/delete/<%= data[i].id %>" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete?')" >Delete</a></td>
+											</tr>
+											<% } %>
+											
+											 
+										   </tbody> </table>
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                </div>
+				
+                <footer>
+                <% include ../../include/design/footer %>
+				</footer>
+    
+            </div>
+        </div>
+	
+</body>
+</html>

@@ -1,0 +1,826 @@
+body {
+padding-bottom:0 !important;
+background:#222;
+}
+
+h1 {color: #333}
+.highlight {background:yellow}
+.listings {padding:10px 30px}
+
+.purplebg{
+background:#333;
+
+  background:url("/bg.png")  0 -490px  !important;
+	background-size:32px !important;
+}
+
+#maintab li.active a {background: red}
+#maintab li a:hover {background: #3b3c3e}
+#maintab li a {color:#fff}
+.btn.up a {text-decoration:none}
+a.btn.btn-inverse{color: red}
+a.btn.btn-inverse:hover {color:#fff}
+
+.desc {
+	padding:10px 25px;
+	background: rgba(255,255,255,.9);
+	margin-bottom:10px;
+	border-radius:5px;	
+	margin-bottom:30px;
+}
+
+.desc  hr {
+	margin:10px 0;	
+	background: rgba(255,255,255,.9);
+	border-bottom: rgba(255,255,255,.9);
+}
+
+.logo a {
+	padding:10px;
+	display:block;
+	font-size:1.2em;
+	color:#fff;
+	text-transform:uppercase;
+	text-shadow: rgba(255,255,255,.9);
+	font-weight:bold;
+	text-decoration:none	
+}
+
+hr.purplehr {
+border-top: 1px solid red;
+border-bottom: 1px solid #222;	
+}
+
+.right {text-align:right}
+
+.help-icons {
+	height:64px;
+	width:64px;
+	margin:auto;
+}
+
+.main-listing {
+	background:#fff;
+	padding:20px 60px;
+	margin-top:20px;
+	margin-bottom:20px;
+	border-radius:5px;
+	border:1px solid rgba(255,255,255,.9);	
+	box-shadow: 0 1px 6px rgba(0,0,0,.4);	
+}
+
+.main-listing .help-icons {
+	height:64px;
+	width:64px;
+	margin:0;
+	float:left;	
+}
+
+.results {color:#fff;margin-bottom:20px;opacity: .4}
+
+img.avatar {
+	width:32px;
+	height:32px;
+	border:1px solid rgba(0,0,0,.2)
+}
+
+.sublisting  h6 {
+	display:none;
+}
+
+.firstlisting h6 {
+font-size:1.2em;	
+}
+
+#goals div.row div.col-md-12 div.main-listing hr {
+	border-top:1px solid #fff  ;
+	border-bottom:1px solid #ccc  ;
+}
+
+span.small {
+	font-size:.8em;
+	color:#999;
+	display:block;
+	margin-bottom:20px;
+	margin-top:7px
+}
+
+table.table-condensed.table-bordered.table-striped {
+	text-align:center;
+}
+
+#deadlineModal .table-striped tbody tr td strong {
+	display:block;
+	background:green;
+	color:#fff;
+	border-radius:2px;
+}
+
+.main-listing h1 {
+	text-align: center;
+	margin:0px 0 0px;
+	text-shadow:0 1px 1px rgba(0,0,0,.1);
+	padding:10px 10px 20px;
+	font-size:1.5em;
+	background:#fff;
+	border-bottom:1px solid #eee;
+	
+}
+
+.install_app_btn{
+     margin: 0 auto;
+     display: block;
+     width:25%
+}
+
+.bulk_page_post_logo{
+width: 60%;
+display: block;
+margin: 0 auto;
+}
+
+img.screenshot {
+width:100%;
+	margin:10px;
+}
+
+div.attached-files {
+	text-align:center;
+}
+
+.muted {
+	color: #ccc;
+}
+
+#goals .main-listing span.small .btn-lg.btn-block {
+	margin-bottom:10px;
+}
+
+a.btn.btn-purple {
+	margin:20px auto 0;
+	color:#eee;
+	border:1px solid rgba(255,255,255,.3)
+}
+
+.fb-login-btn{
+	color: #fff;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #3c56a1;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+.fb-login-btn:hover, .fb-login-btn:focus {
+    color: #fff !important; 
+    text-decoration: none !important;
+	background: linear-gradient(#5b7bd5, #4864b1);
+    border-bottom-color: #365899;
+    border-left-color: #4961a8;
+    border-right-color: #4961a8;
+    border-top-color: #5874c3;
+    box-shadow: inset 0 1px 0 #607fd6;
+}
+
+.fbd_popup_close_btn{
+    background: red;
+    float: right;
+    padding: 0px 5px 0px 5px;
+    font-size: 21px;
+    font-weight: 700;
+    border: 1px solid red;
+    border-radius: 2px;
+}
+
+
+
+
+
+.fb-post-btn{
+    white-space: normal;
+    font-size: 21px;
+    width: 100%;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.fb-post-btn:hover{
+   
+    color: white;
+}
+
+.fb-post-btn-lg{
+    clear: both;
+    display: block;
+}
+
+.fb-post-btn-sm{
+    font-size: 14px;
+}
+
+.fb-post-ad-btn{
+	white-space: normal;
+	font-size: 21px;
+	background-color: #3b5998;
+	border-color: #3b5998;
+}
+
+.fb-post-ad-btn:hover, .fb-post-ad-btn:focus, .fb-post-ad-btn:active, .fb-post-ad-btn.active {
+    background: linear-gradient(#5b7bd5, #4864b1);
+	border-color: #5b7bd5;
+}
+
+.fb-post-ad-btn-sm{
+    font-size: 16px;
+}
+
+.fb-post-ad-btn-lg{
+    clear: both;
+    display: block;
+}
+
+.fb-post-ad-btn-main-div{
+    display: table;
+    margin: auto;
+    float: none;
+    width: auto;
+	text-align: center;
+}
+.fb-post-ad-btn-main{
+    width: 48%;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.pacs-locations_remove{
+    width: 12px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 9px;
+	cursor: pointer;
+}
+
+.pacs-frm-field-main{
+    margin-bottom: 10px;
+    float: left;    
+}
+
+.pacs-frm-field-sm-ageto{
+    text-align:center;
+}
+
+.pacs-detail-targeting-cutmbx-widht{
+    width: 78%;
+}
+.pacs-detail-targeting-widht{
+    width: 81.47%;
+}
+
+.pacs-radio-input-gender{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1% !important;
+}
+.pacs-radio-label-gender{
+   display: inline-block;
+   vertical-align: top;
+   font-weight: 100;
+}
+
+.pacs-chkbx-input-placefb{
+   display: inline-block;
+   vertical-align: top;
+   margin-right: 1% !important;
+}
+
+.pacs-chkbx-label-placefb{
+   display: inline-block;
+   vertical-align: top;
+   font-weight: 100;
+}
+
+@media (max-width: 1115px) {
+.fb-post-ad-btn{
+ font-size: 19px;
+}
+
+}
+
+@media (max-width: 1210px) {
+.pacs-frm-field-main{
+ margin-bottom: 5px;
+ float: left;
+ }
+}
+
+@media (max-width: 991px) {
+.pacs-frm-field-main{
+ margin-bottom: 0px;
+ float: none;
+ }
+.pacs-frm-field-sm-ageto{
+ float:left;
+}
+.pacs-frm-field-sm-bdamt{
+ margin-top: -21px;
+ }
+ 
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+
+}
+
+@media (max-width: 767px) {
+
+
+h1 {font-size:1.2em}
+
+
+
+
+
+.main-listing {
+	padding:20px 30px;	
+}
+
+.sublisting  h6 {
+	display:block;
+font-size:1.2em;
+}
+.listings {padding:0px}
+
+
+a.btn.btn-purple {
+	margin:20px auto 0;
+	color:#eee;
+	border:1px solid rgba(255,255,255,.3)
+}
+}
+
+@media (max-width: 676px) {
+.fb-post-btn{
+    font-size: 16px;
+}
+
+.fb-post-btn-sm{
+    font-size: 12px;
+}
+
+.fb-post-ad-btn{
+    font-size: 16px;
+}
+.fb-post-ad-btn-sm{
+    font-size: 12px;
+}
+.fb-post-ad-btn-main{
+   margin:5px 5px;
+}
+}
+
+
+@media (max-width: 521px) {
+.fb-post-ad-btn{
+font-size: 14px;
+}
+.install_app_btn{
+font-size: 13px;
+width: 30%;
+}
+}
+
+@media (max-width: 480px) {
+
+img.screenshot {
+width:100%;
+	margin:0px;
+}
+
+h1 {font-size:1.2em}
+.main-listing {
+	padding:20px;
+	margin-top:0;	
+}
+
+.fb-post-btn{
+    font-size: 14px;
+	padding-left: 2px;
+    padding-right: 2px;
+}
+
+.fb-post-btn-sm{
+    font-size: 8px;
+}
+
+.fb-post-ad-btn{
+    font-size: 14px;
+}
+.fb-post-ad-btn-sm{
+    font-size: 10px;
+}
+
+.fb-post-ad-btn-main{
+    width: 48%;
+    margin-top: 5px;
+}
+}
+
+
+
+div.main-tab-menu {
+	padding-top:10px;
+}
+
+img.logo {
+	width:120px;
+	margin-bottom:2px
+}
+
+img.logo-lower {
+	width:120px;
+	margin-top:20px;
+	margin-bottom:60px;
+}
+
+.editproj {
+margin:10px 0 20px;	
+}
+
+.addprojbtn {
+margin:10px 0 20px;	
+	
+}
+
+.title-thought {
+	font-size:1.2em;
+	background:#f1f1f1;
+	padding:10px;
+	border-radius: 5px;
+}
+
+/************My CSS******************/
+
+.senderrordiv {
+    color: #FF0000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+
+
+.add-offer-outer{
+	border:1px solid #CCC;
+	border-radius:20px;
+	padding:0px;
+}
+
+.add-offer-main{
+	float:left; 
+	width:100%; 
+	border-bottom:1px solid #CCC;
+}
+
+.add-offer-main{
+	float:left; 
+	width:100%; 
+	border-bottom:1px solid #CCC;
+}
+
+.custom-font-container{
+	float:left; width:100%; clear:both;
+}
+
+/*.coupon-txt-outer{
+	float:left; 
+	width:100%; 
+	height:200px; 
+	border:1px solid #CCC; 
+	border-radius:5px;
+	padding:3px; 
+	box-shadow:#CCC; 
+	text-align:center;
+}*/
+
+.coupon-txt-outer{
+	float:left; 
+	width:100%; 
+	height:auto; 
+	border:1px solid #CCC; 
+	border-radius:5px;
+	padding:3px; 
+	box-shadow:#CCC; 
+	text-align:center;
+}
+
+.coupon-txt-defalut{
+	float:left; 
+	width:100%; 
+	min-height:192px; 
+	border:1px solid #CCC;  
+	box-shadow:#CCC; 
+	background-color:#eee; 
+	display:table;
+	padding-bottom:25px;
+}
+
+.coupon-txt-sub{
+	float:left; 
+	width:100%; 
+	text-align:center; 
+	font-size:18px; 
+	font-weight:bold; 
+	margin-top:20px; 
+	padding:15px;
+}
+
+.coupon-box-default{
+	background-color: #ccc; 
+	display: inline-block; 
+	float: none; 
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: auto; 
+	padding: 15px; 
+	text-align: center; 
+	width: auto;
+}
+
+.coupon-txt-striking{	
+	background-color:#f74064; 
+	color:#fff;
+	float:left; 
+	width:100%; 
+	min-height:192px; 
+	border:1px solid #CCC;  
+	box-shadow:#CCC; 
+	display:table;
+	padding-bottom:25px;
+}
+
+.coupon-box-striking{
+	background-color: #ad243f; 
+	color:#fff;
+	display: inline-block; 
+	float: none; 
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: auto; 
+	padding: 15px; 
+	text-align: center; 
+	width: auto;
+}
+
+.coupon-txt-calm{	
+	background-color:#e3eff4; 
+	color:#333333;
+	float:left; 
+	width:100%; 
+	min-height:192px; 
+	border:1px solid #CCC;  
+	box-shadow:#CCC; 
+	display:table;
+	padding-bottom:25px;
+}
+
+.coupon-box-calm{
+	background-color: #b3d3e2; 
+	display: inline-block; 
+	float: none; 
+	font-size: 18px; 
+	font-weight: bold; 
+	margin: auto; 
+	padding: 15px; 
+	text-align: center; 
+	width: auto;
+}
+
+.mrgn-top{ margin-top:20px !important; }
+.sub-btn-outer{ float: none; text-align: center; }
+.sub-btn{ display: table; text-align: center; float: none; margin: auto; }
+.disable-btn{ cursor:wait;background-color:#5cb85c;border-color:#4cae4c;}
+.custom-combobox {
+	position: relative;
+	display: inline-block;
+}
+.custom-combobox-toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-left: -1px;
+	padding: 0;
+}
+.custom-combobox-input {
+	margin: 0;
+	padding: 4px 10px;
+}
+.pagination{
+	float:left; padding:5px 10px; border:1px solid; cursor:pointer; margin:5px;	
+}
+.pagination:hover{ background-color:#333; color:#FFF; }
+.pagination_active{
+	float:left; padding:5px 10px; border:1px solid; cursor:pointer; margin:5px; background-color:#333; color:#FFF;	
+}
+.pagination_dot{
+	float:left; padding:5px;	
+}
+
+
+/*-------Facebook login popup ----------*/
+.fbd_logo_text p{text-align: center;padding: 20px 0px;font-size: 17px;}
+.fbd_below_header{text-align: center;font-size: 18px;padding: 40px 0px 25px;margin-bottom: 0px;}
+.fbd_grant_kit p{text-align: center;font-size: 16px;}
+.fbd_sub_txt h2{font-size:15px; margin-bottom: 0px;padding-left: 0px;color:#fff;margin-top:0px;}
+.fbd_sub_txt p{font-size:14px;color:#fbf8f8a6;margin-bottom: 4px;}
+.maindiv1{float: left;width: 100%;background: #7388b4;border-radius: 14px;padding: 33px 0px;}
+.fbd_right h2{text-align: left;font-size: 18px;line-height: 25px;    padding-left: 0px;    padding-bottom: 20px;}
+.fbd_right p{text-align: left;font-size: 16px;}
+.textdinmain2{width:100%;float:left;padding-top:15px;}
+.fbd_up_footer{float: left;width: 100%;padding: 31px 0px 20px 0px;}
+.fbd_up_footer p{    text-align: center;font-size: 13px;margin-bottom: 5px;}
+.modal-content{float: left;width: 100%;}
+..modal-footer{    padding: 21px 0px 10px 0px !important;    text-align: center !important;}
+/*-------Facebook login popup ----------*/
+
+
+@media only screen and (max-width: 600px) {
+
+
+  /*-------Facebook login popup ----------*/
+
+.fbd_main_div{
+	background-color:#f3f7fa;
+}
+.fbd_logo_text p{
+	margin: auto;
+	display: table;
+	float: none;
+	padding-top: 108px;
+/*	font-style: italic;*/
+	padding-bottom: 47px;
+	font-size: 17pt;
+    color: #515465;
+}
+.fbd_below_header{
+	background-color:#fff;
+}
+.fbd_below_header p{
+	display: table;
+    margin: auto;
+    float: none;
+    padding-top: 31px;
+    font-size: 15pt;
+    color: #52524a;
+}
+.fbd_grant_kit p{
+	margin-bottom: 6ex;
+	padding-top: 14px;
+	font-size: 9pt;
+	color: #5d5e60;
+}
+.fbd_ticl_icn{
+	font-size: 30px;
+	font-weight: normal;
+	width: auto;
+	height: auto;
+}
+.fbd_sub_txt p{
+	float: left;
+	padding-top: 0px;
+	font-size: 14pt;
+	color: #eee;
+	width: 100%;
+}
+.fbd_sub_txt h2{
+	font-size: 17pt;
+	font-weight: bold;
+	color: #f8fcff;
+}
+.fbd_pic img{
+	margin-top: 5ex;
+	width: 100%;
+}
+.fbd_left{
+	background-color: #7587b5;
+	border: 1px;
+	border-radius: 8px;
+}
+.fbd_right h2{
+	font-size: 25pt;
+	color: #767072;
+}
+.fbd_right p{
+    float: left;
+    padding-top: 0px;
+    font-size: 19pt;
+    color: #6e6d73;
+	width: 100%;
+}
+.fbd_up_footer p{
+	padding-top: 0px;
+	font-size: 10pt;
+	color: #6e6e6e;
+	text-align: center;
+}
+.fbd_btn{
+    margin: auto;
+    display: table;
+    float: none;
+    border: 1px solid;
+    height: 72px;
+    font-size: 17pt;
+    background-color: #01c0da;
+    color: #b4ffff;
+    border-radius: 9px;
+    padding-left: 40px;
+    padding-right: 44px;
+}
+.fbd_footer p{
+	color: #9a9ea1;
+	font-size: 12pt;
+	text-align: center;
+}
+.fbd_footer{
+    margin-top: 65px;
+    float: left;
+    width: 100%;
+    margin-bottom: 4ex;
+}
+.fbd_right{
+padding-top: 21px;
+}
+
+
+/*-------End Facebook login popup -------*/
+    
+}
+@media only screen and (max-width: 440px) {
+	.fbd_below_header p {
+    font-size: 15pt;
+    color: #52524a;
+	text-align: center;
+}
+.fbd_right p {
+    float: left;
+    padding-top: 0px;
+    font-size: 16pt;
+    color: #6e6d73;
+    width: 100%;
+}
+.fbd_sub_txt p {
+    float: left;
+    padding-top: 0px;
+    font-size: 14pt;
+    color: #eee;
+    width: 100%;
+}
+.fbd_grant_kit p {
+    margin-bottom: 6ex;
+    padding-top: 14px;
+    font-size: 9pt;
+    color: #5d5e60;
+}
+.fbd_right{
+	padding-top: 0px;
+}
+.fbd_up_footer p {
+    padding-top: 0px;
+    font-size: 10pt;
+    color: #6e6e6e;
+    text-align: center;
+}
+.fbd_footer p {
+    color: #9a9ea1;
+    font-size: 12pt;
+    text-align: center;
+}
+.fbd_logo_text p {
+    font-size: 17pt;
+    color: #515465;
+}
+.fbd_logo_text p {
+    font-size: 17pt;
+    color: #515465;
+	text-align:center;
+}
+}
+@media only screen and (max-width: 370px) {
+.fbd_btn {
+    margin: auto;
+    display: table;
+    float: none;
+    border: 1px solid;
+    height: 72px;
+    font-size: 17pt;
+    background-color: #01c0da;
+    color: #b4ffff;
+    border-radius: 9px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+}
+	

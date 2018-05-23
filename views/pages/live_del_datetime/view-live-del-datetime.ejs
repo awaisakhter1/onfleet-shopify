@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	
+	<!-- CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/bootstrap/css/bs.css" rel="stylesheet">
+
+<!---jQuery UI Plugin --->
+<link href="/jquery-ui/jquery-ui.css" rel="stylesheet">
+<!---Custom Style Css--->
+<link href="/style.css" rel="stylesheet">
+	
+</head>
+<body style="background: #fff;">
+
+	<header>
+	</header>
+	
+	<div class="row purplebg listings" style="background: white !important;">
+            <div class="col-md-8 col-md-offset-2 col-sm-12  col-xs-12">
+                <div class="main-tab-menu" style="padding-top: 0px;">       
+                         
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="profile">
+                                               
+                            <div class="row">
+                                
+                                <div class="col-md-5">
+                                
+                                    <div class="main-listing" style="border: 1px solid rgb(119, 150, 168);">
+                                       
+                                        <div class="row">
+                                          <form method="post" id="adddeldatetimefrm">
+										  
+                                                <div class="panel panel-default" style="height: 220px;">
+                                                    <div class="panel-body">
+													
+													    <div class="form-group">
+                                                            <label for="category_name">Select Date: </label>
+															<% var today = new Date();
+													        var dd     = today.getDate();
+														    var mm     = today.getMonth()+1; //January is 0!
+															var mm2    = today.getMonth(); //January is 0!
+														    var yyyy   = today.getFullYear();
+															var dayNum = today.getDay();
+															
+															
+															var weekday=new Array(7);
+															weekday[0]="Mon";weekday[1]="Tue";weekday[2]="Wed";weekday[3]="Thu";
+															weekday[4]="Fri";weekday[5]="Sat";weekday[6]="Sun";
+															var dayName = weekday[dayNum];
+															
+															var month=new Array(12);
+															month[0]="Jan";month[1]="Feb";month[2]="Mar";month[3]="Apr";
+															month[4]="May";month[5]="Jun";month[6]="Jul";month[7]="Aug";
+															month[8]="Sep";month[9]="Oct";month[10]="Nov";month[11]="Dec";
+															var monthName = month[mm2];
+															
+															if (mm.length<2) {mm = '0' + mm;}
+  															if (dd.length< 2) {dd = '0' + dd;}
+															%>
+															
+                                                            <input type="text" id="datepicker" class="form-control" name="delivery_date" required value="<%= yyyy+'-'+mm+'-'+dd %>">
+                                                        </div>
+														
+														<div class="row" id="current_date">
+														
+														<% if (day_check_type == 'Blackout day') { %>
+														<span class="col-lg-10" style="float: left;"><b>Detail: </b></span>
+														<span class="col-lg-10" style="float: left;"><%= data[0].description; %></span>
+														<% }%>
+														
+														<% if (day_check_type == 'No Delivery day') { %>
+														<span class="col-lg-10" style="float: left;"><b>Detail: </b></span>
+														<span class="col-lg-10" style="float: left;">No Delivery this day</span>
+														<% }%>
+														
+														<% if (day_check_type == 'Yes Delivery day') { %>
+													
+													
+														<% if (found_time == 'Yes') {var time_window_index =''; %>
+														
+														<!--<span class="col-lg-10" style="float: left;"><%= time_window; %></span>-->
+														<span class="col-lg-10" style="float: left;"><b>Select Time Slots: </b></span>
+														
+														<% var time_window_array = data[0].times_windows.split(',');
+														 for(var i=0;i<time_window_array.length;i++){
+					  
+					 									 var time_window_start = time_window_array[i].split('-');
+														 
+														 var t1=time_window_start[0].trim();
+					                                     var t2=time_window_start[1].trim();
+														  
+														 if(t1==time_window || t2==time_window){ 
+														 time_window_index =i;
+														 break;
+														 }
+														  
+														 }%>
+														
+														<ul style='padding-top: 4px;line-height: 29px;list-style: none;padding-left: 16px;clear: both;'> 
+														<% var count=1;
+														for(var j=time_window_index;j<time_window_array.length;j++){%>
+														
+														<li><%= count+'. '+dayName+' '+monthName+' '+dd+' '+time_window_array[j]%><input type="radio" name="time_window" style="margin-left: 5px;" value="<%= time_window_array[j] %>" onClick="check_time_slot()"></li>
+														
+														<% count++; }%>
+														</ul>
+														
+														<% }%>
+														
+														<% if (found_time == 'No') { %>
+														
+														<span class="col-lg-10" style="float: left;">No Time window are found</span>
+														<% }%>
+														
+														<% }%>
+
+														</div>
+														
+														<div class="row" style="display:none" id="time_slots_id">
+														
+														</div>
+														
+                                                    </div>
+                                                </div>
+                                         </form>  
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                </div>
+				
+                <footer>
+				</footer>
+    
+            </div>
+        </div>
+	
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!---jQuery UI Plugin --->
+<script src="../jquery-ui/jquery-ui.js"></script>
+
+<script>
+  $( function() {
+	
+	$("#datepicker").datepicker({
+	minDate : 1,
+	dateFormat: 'yy-mm-dd',
+    onSelect: function(dateText, inst) {
+	  $('#current_date').css('display', 'none'); 
+	  $('#time_slots_id').css('display', 'block');
+      var dateAsString = dateText; //the first parameter of this function
+      var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+	  var dayName = $.datepicker.formatDate('D', dateAsObject);
+	  var MonthName = $.datepicker.formatDate('M', dateAsObject);
+	  var dayNumber = $.datepicker.formatDate('d', dateAsObject);
+	  $('.time_slots').html(dayName+' '+MonthName+' '+dayNumber);
+	  
+	  var dayNum = dateAsObject.getDay();
+					
+	  $.ajax({
+		  type: 'GET',
+		 // data: JSON.stringify(data),
+		  contentType: 'application/json',
+		  url: '/time_windows_ajax?dayNumber='+dayNum+'&full_date='+dateText,						
+		  success: function(data) {
+			  //alert(data);
+			  
+			  var ret = jQuery.parseJSON(data);
+              $('#current_date').html('');
+			  
+			  if(ret.day_check_type=='Blackout day'){
+			  $('#current_date').css('display', 'block');
+			  $('#time_slots_id').css('display', 'none');
+			   
+			  $('#current_date').html('<span class="col-lg-10" style="float: left;"><b>Detail: </b></span><span class="col-lg-10" style="float: left;">'+ret.description+'</span>');
+			  
+			  }			  
+			  
+			  if(ret.day_check_type=='No Delivery day'){
+			  $('#current_date').css('display', 'block');
+			  $('#time_slots_id').css('display', 'none');
+			   
+			  $('#current_date').html('<span class="col-lg-10" style="float: left;"><b>Detail: </b></span><span class="col-lg-10" style="float: left;">'+ret.day_check_type+'</span>');
+			  
+			  }
+			  
+			  if(ret.day_check_type=='Yes Delivery day'){
+			  
+			  $('#current_date').css('display', 'none');
+			  $('#time_slots_id').css('display', 'block');
+			  var time_window_array = ret.time_windows.split(','); 
+			  
+			  text = "<span class='col-lg-10' style='float: left;'><b>Select Time Slots: </b></span>";
+			  text+= "<ul style='padding-top: 4px;line-height: 29px;list-style: none;padding-left: 16px;clear:both'>";
+			  var counter='';
+			  for(var j=0; j<time_window_array.length; j++){
+			  counter=j+1+'.';													
+			  text += "<li>"+counter+" "+dayName+" "+MonthName+" "+dayNumber+" "+ time_window_array[j] + "<input type='radio' name='time_window' style='margin-left: 5px;' value=\""+time_window_array[j]+"\" onClick='check_time_slot()'></li>";
+																		
+			  }
+			  text += "</li></ul>";
+			  
+			  $('#time_slots_id').html(text);
+			  }
+			 
+		  }
+	  });
+
+	  
+   }
+});
+	
+  } );
+</script>
+
+
+<script>
+function check_time_slot(){
+var time_window = $('input[name=time_window]:checked').val();
+var date_select = $('#datepicker').val();
+$.ajax({
+		  type: 'GET',
+		  contentType: 'application/json',
+		  url: '/check_timewindow_orders?date_select='+date_select+'&time_window='+time_window,						
+		  success: function(data) {
+		  //alert(data);
+		  var ret = jQuery.parseJSON(data);
+		  
+          if(ret.check_num_order=='order less than 5'){
+		  
+		  }
+		  if(ret.check_num_order=='order greater than 5'){
+		  alert('This Time window already 5 order booked');
+		  $('input[name="time_window"]').prop('checked', false);
+		  }
+		  if(ret.check_num_order=='No order found'){
+		  
+		  }
+			  
+		  }
+	  });
+
+}
+</script>
+
+<script>
+function delivery_date_fun(val){
+window.location = "/del_date_sess/"+val;
+//window.location = "/ddd?id="+val;
+}
+</script>

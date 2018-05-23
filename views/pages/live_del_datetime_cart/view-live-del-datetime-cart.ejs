@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	
+	<!-- CSS -->
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/bootstrap/css/bs.css" rel="stylesheet">
+
+<!---jQuery UI Plugin --->
+<link href="/jquery-ui/jquery-ui.css" rel="stylesheet">
+<!---Custom Style Css--->
+<link href="/style.css" rel="stylesheet">
+	
+</head>
+<body style="background: #fff;">
+
+	<header>
+	</header>
+	
+	<div class="row purplebg listings" style="background: white !important;">
+            <div class="col-md-8 col-md-offset-2 col-sm-12  col-xs-12">
+                <div class="main-tab-menu" style="padding-top: 0px;">       
+                         
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="profile">
+                                               
+                            <div class="row">
+                                
+                                <div class="col-md-5">
+                                
+                                    <div class="main-listing" style="border: 1px solid rgb(119, 150, 168);">
+                                       
+                                        <div class="row">
+                                          <form method="post" id="adddeldatetimefrm">
+										  
+                                                <div class="panel panel-default" style="height: 220px;">
+                                                    <div class="panel-body">
+													
+													    <div class="form-group">
+                                                            <label for="category_name">DELIVERY ON: </label>
+															<%
+															 var today 	    = new Date();
+														     var month 	    = today.getMonth()+ 1;
+														     var day   	    = today.getDate();
+														     var year       = today.getFullYear();
+														     var day_number = today.getDay();
+															 
+															
+															 %>
+															<%=deldate_sess %>
+															<%=delvytime_window %>
+                                                            
+                                                        </div>
+														
+                                                    </div>
+                                                </div>
+                                         </form>  
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+    
+                </div>
+				
+                <footer>
+				</footer>
+    
+            </div>
+        </div>
+	
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!---jQuery UI Plugin --->
+<script src="../jquery-ui/jquery-ui.js"></script>

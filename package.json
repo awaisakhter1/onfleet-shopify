@@ -1,0 +1,53 @@
+{
+  "name": "shopify-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "client-sessions": "^0.8.0",
+    "cookie": "^0.3.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "express-flash": "0.0.2",
+    "express-myconnection": "^1.0.4",
+    "express-mysql-session": "^1.3.0",
+    "express-session": "^1.15.6",
+    "express-useragent": "^1.0.12",
+    "fs": "0.0.1-security",
+    "getmac": "^1.4.1",
+    "html": "^1.0.0",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "internal-ip": "^3.0.1",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "jsdom": "^11.7.0",
+    "macaddress": "^0.2.8",
+    "mysql": "^2.15.0",
+    "node-macaddress": "^0.2.4",
+    "nonce": "^1.0.4",
+    "npm": "^5.8.0",
+    "onfleet": "^2.0.1",
+    "path": "^0.12.7",
+    "public-ip": "^2.4.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "url": "^0.11.0",
+    "useragent": "^2.3.0",
+    "yamlparser": "0.0.2"
+  },
+  "now": {
+    "alias": [
+      "onfleet.app"
+    ]
+  }
+}
